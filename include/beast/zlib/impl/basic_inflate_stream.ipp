@@ -35,7 +35,7 @@
 #ifndef BEAST_ZLIB_IMPL_BASIC_INFLATE_STREAM_IPP
 #define BEAST_ZLIB_IMPL_BASIC_INFLATE_STREAM_IPP
 
-#include <beast/detail/zlib/error.hpp>
+#include <beast/zlib/error.hpp>
 #include <cassert>
 #include <cstring>
 
@@ -492,7 +492,7 @@ write(z_stream& zs, int flush)
 
         case LEN:
         {
-#if 1
+#if 0
             if(avail_in >= 6 && avail_out >= 258)
             {
                 auto const nwritten = put - zs.next_out;

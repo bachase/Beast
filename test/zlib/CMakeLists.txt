@@ -1,0 +1,18 @@
+# Part of Beast
+
+GroupSources(extras/beast extras)
+GroupSources(include/beast beast)
+GroupSources(test/zlib "/")
+
+add_executable (zlib-tests
+    ${BEAST_INCLUDES}
+    ${EXTRAS_INCLUDES}
+    ../../extras/beast/unit_test/main.cpp
+    deflate_stream.cpp
+    inflate_stream.cpp
+    zlib.cpp
+)
+
+if (NOT WIN32)
+    target_link_libraries(detail-tests ${Boost_LIBRARIES} Threads::Threads)
+endif()
