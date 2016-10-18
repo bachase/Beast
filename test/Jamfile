@@ -7,18 +7,11 @@
 
 import os ;
 
-compile core.cpp : : ;
-compile http.cpp : : ;
-compile version.cpp : : ;
-compile websocket.cpp : : ;
+#compile core.cpp : : ;
+#compile http.cpp : : ;
+#compile version.cpp : : ;
+#compile websocket.cpp : : ;
 compile zlib.cpp : : ;
-
-unit-test detail-tests :
-    ../extras/beast/unit_test/main.cpp
-    detail/deflate_stream.cpp
-    detail/inflate_stream.cpp
-    detail/zlib.cpp
-    ;
 
 #unit-test core-tests :
 #    $(zlib_sources)
@@ -94,3 +87,10 @@ unit-test detail-tests :
 #exe websocket-echo :
 #    websocket/websocket_echo.cpp
 #    ;
+
+unit-test zlib-tests :
+    ../extras/beast/unit_test/main.cpp
+    zlib/deflate_stream.cpp
+    zlib/inflate_stream.cpp
+    zlib/zlib.cpp
+    ;
